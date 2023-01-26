@@ -49,9 +49,10 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-      - name: tfsec
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Run tfsec, static analysis tool to detect potential security risks
         uses: aquasecurity/tfsec-pr-commenter-action@v1.2.0
         with:
           github_token: ${{ github.token }}
