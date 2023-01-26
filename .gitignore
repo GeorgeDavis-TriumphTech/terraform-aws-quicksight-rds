@@ -1,11 +1,18 @@
 # Local .terraform directories
 **/.terraform/*
 
-# .tfstate files
+# .tfstate files (this should be stored remotely in S3)
 *.tfstate
-*.tfstate.*
+**/*.tfstate.*
 
-# Crash log files
+# Ignore .tfplan files (output of `terraform plan`)
+**.tfplan
+
+# Ignore local terraform installs
+**.terraform
+**/.terraform/*
+
+# If Terraform crashes, don't commit the crash log
 crash.log
 
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
@@ -27,3 +34,25 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+
+# Ignore OS X metadata files
+.history
+**.DS_Store
+**.DS_Code
+**.dccache
+
+# Ignore VS Code files
+**.vscode
+**.vcs
+
+# Ignore IntelliJ IDEA
+**.idea
+
+# Ignore vim swap files
+**.swp
+
+# Ignore PEM (ssh and other cert/key) file(s)
+**.pem
+
+# Ignore .zip files, such as Lambda Function code slugs
+**.zip
